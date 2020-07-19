@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GL Recipes</string>
+    <string name="no_content_filter">There is no content matching the search params</string>
 </resources>

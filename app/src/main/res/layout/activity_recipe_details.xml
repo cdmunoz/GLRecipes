@@ -1,39 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.recipes.details.RecipeDetailsActivity">
 
-    <ImageView android:id="@+id/recipeImage"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="360dp"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher_round"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content">
 
-    <TextView android:id="@+id/recipeInstructions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:padding="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recipeImage" />
+        <ImageView
+            android:id="@+id/recipeImage"
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <FrameLayout
-        android:id="@+id/progressBar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone">
-
-        <ProgressBar
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/recipeRate"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
-    </FrameLayout>
+            android:layout_margin="8dp"
+            android:visibility="visible"
+            app:constraint_referenced_ids="rate1, rate2, rate3, rate4, rate5" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/rate1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/fill_star"
+            app:layout_constraintEnd_toStartOf="@id/rate2"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recipeImage" />
+
+        <ImageView
+            android:id="@+id/rate2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/fill_star"
+            app:layout_constraintEnd_toStartOf="@id/rate3"
+            app:layout_constraintStart_toEndOf="@+id/rate1"
+            app:layout_constraintTop_toTopOf="@+id/rate1" />
+
+        <ImageView
+            android:id="@+id/rate3"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/fill_star"
+            app:layout_constraintEnd_toStartOf="@id/rate4"
+            app:layout_constraintStart_toEndOf="@+id/rate2"
+            app:layout_constraintTop_toTopOf="@+id/rate1" />
+
+        <ImageView
+            android:id="@+id/rate4"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/fill_star"
+            app:layout_constraintEnd_toStartOf="@id/rate5"
+            app:layout_constraintStart_toEndOf="@+id/rate3"
+            app:layout_constraintTop_toTopOf="@+id/rate1" />
+
+        <ImageView
+            android:id="@+id/rate5"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/fill_star"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rate4"
+            app:layout_constraintTop_toTopOf="@+id/rate1" />
+
+        <TextView
+            android:id="@+id/recipeInstructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:padding="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rate1" />
+
+        <FrameLayout
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

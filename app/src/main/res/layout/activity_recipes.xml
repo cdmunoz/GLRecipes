@@ -6,14 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".ui.recipes.RecipesActivity">
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchView"
+    <FrameLayout
+        android:id="@+id/searchViewContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginStart="4dp"
+        android:background="@color/colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/search_view_background" />
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/progressBar"
@@ -27,10 +38,29 @@
             android:layout_gravity="center" />
     </FrameLayout>
 
-    <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerView"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+        app:layout_constraintTop_toBottomOf="@+id/searchViewContainer" />
+
+    <FrameLayout
+        android:id="@+id/noContentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/noContentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="36sp" />
+
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

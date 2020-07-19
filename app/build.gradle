@@ -42,6 +42,9 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
+    def materialVersion = "1.1.0"
+    implementation "com.google.android.material:material:$materialVersion"
+
     def recyclerview_version = "1.1.0"
     implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
 
